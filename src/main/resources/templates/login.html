@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login | InfoGain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/auth.css}"
+          href="/css/auth.css">
+</head>
+
+<body class="auth-page">
+
+<div class="auth-shell">
+
+    <!-- LEFT SIDE -->
+    <section class="auth-showcase">
+
+        <a href="/" class="auth-brand">
+
+            <svg class="brand-logo" viewBox="0 0 52 44" aria-hidden="true">
+                <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"
+                      stroke-linejoin="round"/>
+
+                <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"
+                      stroke-linejoin="round"/>
+
+                <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+            </svg>
+
+            <span>InfoGain</span>
+        </a>
+
+        <div class="showcase-content">
+
+            <div class="eyebrow">
+                STUDENT PORTAL
+            </div>
+
+            <h1>
+                Everything you need for your academic journey.
+            </h1>
+
+            <p>
+                Access your progress, previous-year questions, quizzes,
+                performance insights and academic assistance from one place.
+            </p>
+
+            <div class="showcase-points">
+
+                <div class="showcase-point">
+                    <span class="point-icon">✓</span>
+                    <div>
+                        <strong>Track your progress</strong>
+                        <small>Subjects, modules and topics</small>
+                    </div>
+                </div>
+
+                <div class="showcase-point">
+                    <span class="point-icon">✓</span>
+                    <div>
+                        <strong>Prepare smarter</strong>
+                        <small>PYQs and topic-wise quizzes</small>
+                    </div>
+                </div>
+
+                <div class="showcase-point">
+                    <span class="point-icon">✓</span>
+                    <div>
+                        <strong>Understand your performance</strong>
+                        <small>Find strong and weak areas</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="showcase-footer">
+            <span>Personalized Academic Dashboard</span>
+            <span>•</span>
+            <span>Academic Year 2026–27</span>
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="auth-panel">
+
+        <div class="auth-card">
+
+            <div class="mobile-logo-wrap">
+
+                <a href="/" class="auth-brand dark-brand">
+
+                    <svg class="brand-logo" viewBox="0 0 52 44" aria-hidden="true">
+                        <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.3"
+                              stroke-linejoin="round"/>
+
+                        <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.3"
+                              stroke-linejoin="round"/>
+
+                        <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+                    </svg>
+
+                    <span>InfoGain</span>
+                </a>
+
+            </div>
+
+            <div class="auth-heading">
+
+                <div class="section-tag">
+                    WELCOME BACK
+                </div>
+
+                <h2>
+                    Student Login
+                </h2>
+
+                <p>
+                    Sign in to continue to your personalized academic space.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="studentLoginForm" class="auth-form">
+
+                <div class="field-group">
+
+                    <label for="studentIdentifier">
+                        USN / College Email
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">ID</span>
+
+                        <input
+                            id="studentIdentifier"
+                            name="identifier"
+                            type="text"
+                            placeholder="Enter your USN or email"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="field-group">
+
+                    <div class="field-label-row">
+
+                        <label for="studentPassword">
+                            Password
+                        </label>
+
+                        <a href="#" id="forgotPassword">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">••</span>
+
+                        <input
+                            id="studentPassword"
+                            name="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleStudentPassword"
+                            aria-label="Show password">
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="remember-row">
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberStudent">
+                        <span>Remember me</span>
+                    </label>
+
+                </div>
+
+
+                <button type="submit" class="auth-submit">
+
+                    <span>Sign in to InfoGain</span>
+
+                    <span class="submit-arrow">→</span>
+
+                </button>
+
+
+                <div id="loginMessage" class="form-message"></div>
+
+            </form>
+
+
+            <!-- REGISTER AREA -->
+
+            <div class="divider">
+                <span>New to InfoGain?</span>
+            </div>
+
+            <button type="button" class="secondary-auth-button" id="showRegister">
+                Create student account
+            </button>
+
+
+            <!-- REGISTER FORM -->
+
+            <form id="studentRegisterForm" class="auth-form register-form hidden">
+
+                <div class="register-header">
+                    <h3>Create your student account</h3>
+                    <p>Set up your profile to start tracking your academic progress.</p>
+                </div>
+
+                <div class="field-group">
+
+                    <label for="registerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        id="registerName"
+                        type="text"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+                <div class="field-group">
+
+                    <label for="registerUSN">
+                        USN
+                    </label>
+
+                    <input
+                        id="registerUSN"
+                        type="text"
+                        placeholder="Example: 1SI24CS001"
+                        required
+                    >
+
+                </div>
+
+                <div class="field-group">
+
+                    <label for="registerEmail">
+                        College Email
+                    </label>
+
+                    <input
+                        id="registerEmail"
+                        type="email"
+                        placeholder="Enter your college email"
+                        required
+                    >
+
+                </div>
+
+                <div class="field-group">
+
+                    <label for="registerPassword">
+                        Create Password
+                    </label>
+
+                    <input
+                        id="registerPassword"
+                        type="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="auth-submit">
+
+                    <span>Create account</span>
+
+                    <span class="submit-arrow">→</span>
+
+                </button>
+
+                <button type="button" class="back-login-btn" id="backToLogin">
+                    Back to login
+                </button>
+
+                <div id="registerMessage" class="form-message"></div>
+
+            </form>
+
+
+            <div class="auth-bottom-links">
+
+                <a href="/">
+                    ← Back to InfoGain home
+                </a>
+
+                <a href="/admin/login">
+                    Admin / Staff login
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="security-note">
+            <span class="security-icon">✓</span>
+            Your academic information is intended for authorized users.
+        </div>
+
+    </section>
+
+</div>
+
+<script
+        th:src="@{/js/auth.js}"
+        src="/js/auth.js">
+</script>
+
+</body>
+</html>

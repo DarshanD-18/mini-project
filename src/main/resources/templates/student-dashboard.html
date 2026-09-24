@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | InfoGain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/student-dashboard.css}"
+          href="/css/student-dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="studentSidebar">
+
+        <a href="/" class="side-brand">
+
+            <svg class="side-logo" viewBox="0 0 52 44">
+
+                <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"/>
+
+                <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"/>
+
+                <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+
+            </svg>
+
+            <span>InfoGain</span>
+
+        </a>
+
+
+        <div class="side-section-label">
+            STUDENT SPACE
+        </div>
+
+
+        <nav class="side-nav">
+
+            <a class="side-link active" href="#overview">
+                <span class="side-icon">⌂</span>
+                Dashboard
+            </a>
+
+            <a class="side-link" href="#subjects">
+                <span class="side-icon">▦</span>
+                My Subjects
+            </a>
+
+            <a class="side-link" href="#pyqs">
+                <span class="side-icon">◫</span>
+                Previous Questions
+            </a>
+
+            <a class="side-link" href="#quizzes">
+                <span class="side-icon">✓</span>
+                Quizzes
+            </a>
+
+            <a class="side-link" href="#performance">
+                <span class="side-icon">↗</span>
+                Performance
+            </a>
+
+            <a class="side-link" href="#history">
+                <span class="side-icon">◷</span>
+                Activity History
+            </a>
+
+        </nav>
+
+
+        <div class="side-section-label">
+            SUPPORT
+        </div>
+
+
+        <nav class="side-nav">
+
+            <a class="side-link" href="#assistant">
+                <span class="side-icon">?</span>
+                InfoGain Assistant
+            </a>
+
+            <a class="side-link" href="#profile">
+                <span class="side-icon">◎</span>
+                My Profile
+            </a>
+
+        </nav>
+
+
+        <div class="side-bottom">
+
+            <a href="/" class="home-link">
+                ← Back to Home
+            </a>
+
+            <button class="logout-link" id="studentLogout">
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="topbar-title">
+
+                <span class="topbar-kicker">
+                    STUDENT DASHBOARD
+                </span>
+
+                <h1>
+                    Welcome back, <span id="studentName">Student</span>
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="top-search">
+
+                    <span>⌕</span>
+
+                    <input
+                            id="dashboardSearch"
+                            type="text"
+                            placeholder="Search subjects, PYQs, quizzes..."
+                    >
+
+                </div>
+
+
+                <button class="icon-button notification-button">
+                    ♢
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="user-avatar" id="userAvatar">
+                    D
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="dashboard-content">
+
+
+            <!-- OVERVIEW -->
+
+            <section id="overview" class="dashboard-section">
+
+                <div class="welcome-card">
+
+                    <div>
+
+                        <span class="card-label">
+                            YOUR ACADEMIC OVERVIEW
+                        </span>
+
+                        <h2>
+                            Keep moving forward.
+                        </h2>
+
+                        <p>
+                            Track where you are, identify what needs attention,
+                            and prepare for your next examination.
+                        </p>
+
+                        <a href="#subjects" class="primary-button">
+                            Continue learning →
+                        </a>
+
+                    </div>
+
+
+                    <div class="welcome-progress">
+
+                        <div class="progress-circle">
+
+                            <span>68%</span>
+
+                        </div>
+
+                        <small>
+                            Overall completion
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-label">SUBJECT PROGRESS</div>
+                        <strong>68%</strong>
+                        <small>Across active subjects</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">QUIZ AVERAGE</div>
+                        <strong>78%</strong>
+                        <small>Last 10 attempts</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">PYQs SOLVED</div>
+                        <strong>42</strong>
+                        <small>Across all subjects</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">TOPICS COMPLETED</div>
+                        <strong>18/30</strong>
+                        <small>Modules and topics</small>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBJECTS -->
+
+            <section id="subjects" class="dashboard-section">
+
+                <div class="section-heading-row">
+
+                    <div>
+
+                        <span class="card-label">
+                            SUBJECTS
+                        </span>
+
+                        <h2>
+                            Your learning progress
+                        </h2>
+
+                    </div>
+
+                    <button class="text-button">
+                        View all
+                    </button>
+
+                </div>
+
+
+                <div class="subject-grid">
+
+                    <article class="subject-card">
+
+                        <div class="subject-head">
+
+                            <div class="subject-mark navy-mark">
+                                DS
+                            </div>
+
+                            <div>
+                                <h3>Data Structures</h3>
+                                <span>5 Modules</span>
+                            </div>
+
+                            <strong>72%</strong>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <span style="width:72%"></span>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>3 topics remaining</span>
+                            <button>Continue</button>
+                        </div>
+
+                    </article>
+
+
+                    <article class="subject-card">
+
+                        <div class="subject-head">
+
+                            <div class="subject-mark green-mark">
+                                DB
+                            </div>
+
+                            <div>
+                                <h3>Database Management</h3>
+                                <span>5 Modules</span>
+                            </div>
+
+                            <strong>64%</strong>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <span style="width:64%"></span>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>6 topics remaining</span>
+                            <button>Continue</button>
+                        </div>
+
+                    </article>
+
+
+                    <article class="subject-card">
+
+                        <div class="subject-head">
+
+                            <div class="subject-mark gold-mark">
+                                OS
+                            </div>
+
+                            <div>
+                                <h3>Operating Systems</h3>
+                                <span>5 Modules</span>
+                            </div>
+
+                            <strong>58%</strong>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <span style="width:58%"></span>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>7 topics remaining</span>
+                            <button>Continue</button>
+                        </div>
+
+                    </article>
+
+
+                    <article class="subject-card">
+
+                        <div class="subject-head">
+
+                            <div class="subject-mark terracotta-mark">
+                                DS
+                            </div>
+
+                            <div>
+                                <h3>Data Science</h3>
+                                <span>5 Modules</span>
+                            </div>
+
+                            <strong>74%</strong>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <span style="width:74%"></span>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>4 topics remaining</span>
+                            <button>Continue</button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- PYQS + QUIZZES -->
+
+            <section class="split-grid">
+
+                <article id="pyqs" class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                PREVIOUS-YEAR QUESTIONS
+                            </span>
+
+                            <h2>
+                                Practice with PYQs
+                            </h2>
+
+                        </div>
+
+                        <span class="heading-count">
+                            42 solved
+                        </span>
+
+                    </div>
+
+
+                    <div class="filter-row">
+
+                        <select>
+                            <option>All Subjects</option>
+                            <option>Data Structures</option>
+                            <option>DBMS</option>
+                            <option>Operating Systems</option>
+                            <option>Data Science</option>
+                        </select>
+
+                        <select>
+                            <option>All Years</option>
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                        </select>
+
+                        <button class="primary-small">
+                            Search PYQs
+                        </button>
+
+                    </div>
+
+
+                    <div class="question-list">
+
+                        <div class="question-row">
+
+                            <div class="question-badge">
+                                DS
+                            </div>
+
+                            <div class="question-info">
+
+                                <strong>
+                                    Explain AVL tree rotations with example.
+                                </strong>
+
+                                <span>
+                                    Data Structures • 2025 • Module 3
+                                </span>
+
+                            </div>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+
+                        <div class="question-row">
+
+                            <div class="question-badge green">
+                                DB
+                            </div>
+
+                            <div class="question-info">
+
+                                <strong>
+                                    Explain normalization up to BCNF.
+                                </strong>
+
+                                <span>
+                                    DBMS • 2024 • Module 2
+                                </span>
+
+                            </div>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+
+                        <div class="question-row">
+
+                            <div class="question-badge gold">
+                                OS
+                            </div>
+
+                            <div class="question-info">
+
+                                <strong>
+                                    Describe page replacement algorithms.
+                                </strong>
+
+                                <span>
+                                    Operating Systems • 2024 • Module 4
+                                </span>
+
+                            </div>
+
+                            <button>
+                                Open
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article id="quizzes" class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                REVISION
+                            </span>
+
+                            <h2>
+                                Topic-wise quizzes
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-list">
+
+                        <div class="quiz-item">
+
+                            <div class="quiz-symbol navy">
+                                DS
+                            </div>
+
+                            <div class="quiz-info">
+
+                                <strong>
+                                    Trees & Graphs
+                                </strong>
+
+                                <span>
+                                    10 questions • ~8 min
+                                </span>
+
+                            </div>
+
+                            <button class="quiz-button">
+                                Start
+                            </button>
+
+                        </div>
+
+
+                        <div class="quiz-item">
+
+                            <div class="quiz-symbol green">
+                                DB
+                            </div>
+
+                            <div class="quiz-info">
+
+                                <strong>
+                                    SQL & Normalization
+                                </strong>
+
+                                <span>
+                                    12 questions • ~10 min
+                                </span>
+
+                            </div>
+
+                            <button class="quiz-button">
+                                Start
+                            </button>
+
+                        </div>
+
+
+                        <div class="quiz-item">
+
+                            <div class="quiz-symbol gold">
+                                OS
+                            </div>
+
+                            <div class="quiz-info">
+
+                                <strong>
+                                    Memory Management
+                                </strong>
+
+                                <span>
+                                    10 questions • ~8 min
+                                </span>
+
+                            </div>
+
+                            <button class="quiz-button">
+                                Start
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- PERFORMANCE -->
+
+            <section id="performance" class="split-grid">
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                PERFORMANCE ANALYSIS
+                            </span>
+
+                            <h2>
+                                Your strengths
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-item">
+                        <div class="performance-top">
+                            <span>Data Structures</span>
+                            <strong>86%</strong>
+                        </div>
+
+                        <div class="performance-track">
+                            <span style="width:86%"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="performance-item">
+                        <div class="performance-top">
+                            <span>Database Management</span>
+                            <strong>78%</strong>
+                        </div>
+
+                        <div class="performance-track">
+                            <span style="width:78%"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="performance-item">
+                        <div class="performance-top">
+                            <span>Data Science</span>
+                            <strong>75%</strong>
+                        </div>
+
+                        <div class="performance-track">
+                            <span style="width:75%"></span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                NEEDS ATTENTION
+                            </span>
+
+                            <h2>
+                                Topics to revise
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="weak-topic">
+
+                        <span class="attention-dot"></span>
+
+                        <div>
+                            <strong>Deadlocks</strong>
+                            <small>Operating Systems</small>
+                        </div>
+
+                        <span class="topic-score">54%</span>
+
+                    </div>
+
+
+                    <div class="weak-topic">
+
+                        <span class="attention-dot"></span>
+
+                        <div>
+                            <strong>Normalization</strong>
+                            <small>Database Management</small>
+                        </div>
+
+                        <span class="topic-score">59%</span>
+
+                    </div>
+
+
+                    <div class="weak-topic">
+
+                        <span class="attention-dot"></span>
+
+                        <div>
+                            <strong>Probability</strong>
+                            <small>Data Science</small>
+                        </div>
+
+                        <span class="topic-score">61%</span>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ACTIVITY -->
+
+            <section id="history" class="split-grid">
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                RECENT ACTIVITY
+                            </span>
+
+                            <h2>
+                                What you've been doing
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+                        <div class="activity-item">
+
+                            <span class="activity-icon completed">
+                                ✓
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Completed Arrays & Linked Lists
+                                </strong>
+                                <small>
+                                    Data Structures • Today
+                                </small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <span class="activity-icon quiz">
+                                ?
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Scored 8/10 in SQL Quiz
+                                </strong>
+                                <small>
+                                    Database Management • Yesterday
+                                </small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <span class="activity-icon pyq">
+                                ◫
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Solved 5 DBMS PYQs
+                                </strong>
+                                <small>
+                                    Database Management • Yesterday
+                                </small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                UPCOMING
+                            </span>
+
+                            <h2>
+                                Important dates
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="upcoming-item">
+
+                        <div class="date-box">
+                            <strong>18</strong>
+                            <small>OCT</small>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Internal Assessment
+                            </strong>
+                            <small>
+                                Data Structures
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="upcoming-item">
+
+                        <div class="date-box green-date">
+                            <strong>23</strong>
+                            <small>OCT</small>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Quiz Week
+                            </strong>
+                            <small>
+                                All active subjects
+                            </small>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ASSISTANT -->
+
+            <section id="assistant" class="assistant-panel">
+
+                <div class="assistant-copy">
+
+                    <span class="card-label">
+                        ACADEMIC ASSISTANCE
+                    </span>
+
+                    <h2>
+                        Ask InfoGain Assistant
+                    </h2>
+
+                    <p>
+                        Need help understanding a topic, finding a PYQ,
+                        or navigating academic information?
+                    </p>
+
+                </div>
+
+
+                <div class="assistant-actions">
+
+                    <input
+                            id="assistantQuestion"
+                            type="text"
+                            placeholder="Ask a question..."
+                    >
+
+                    <button id="askAssistant">
+                        Ask →
+                    </button>
+
+                </div>
+
+
+                <div id="assistantReply" class="assistant-reply">
+                    Hello! Ask me anything about your academic content.
+                </div>
+
+            </section>
+
+
+            <!-- PROFILE -->
+
+            <section id="profile" class="content-card profile-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            PROFILE
+                        </span>
+
+                        <h2>
+                            Student information
+                        </h2>
+
+                    </div>
+
+                    <button class="text-button">
+                        Edit profile
+                    </button>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div>
+                        <span>Full Name</span>
+                        <strong id="profileName">Darshan</strong>
+                    </div>
+
+                    <div>
+                        <span>USN</span>
+                        <strong id="profileUSN">1SI24CS001</strong>
+                    </div>
+
+                    <div>
+                        <span>Branch</span>
+                        <strong>Computer Science & Engineering</strong>
+                    </div>
+
+                    <div>
+                        <span>Academic Year</span>
+                        <strong>2026–27</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script
+        th:src="@{/js/student-dashboard.js}"
+        src="/js/student-dashboard.js">
+</script>
+
+</body>
+</html>

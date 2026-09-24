@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | InfoGain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/auth.css}"
+          href="/css/auth.css">
+
+</head>
+
+<body class="auth-page admin-auth-page">
+
+<div class="auth-shell">
+
+    <!-- LEFT -->
+
+    <section class="auth-showcase admin-showcase">
+
+        <a href="/" class="auth-brand">
+
+            <svg class="brand-logo" viewBox="0 0 52 44" aria-hidden="true">
+
+                <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"
+                      stroke-linejoin="round"/>
+
+                <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"
+                      stroke-linejoin="round"/>
+
+                <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+
+            </svg>
+
+            <span>InfoGain</span>
+
+        </a>
+
+
+        <div class="showcase-content">
+
+            <div class="eyebrow">
+                ADMINISTRATION
+            </div>
+
+            <h1>
+                Keep academic information accurate and useful.
+            </h1>
+
+            <p>
+                Manage students, academic resources, FAQs, notices and
+                performance insights from the InfoGain administration portal.
+            </p>
+
+
+            <div class="showcase-points">
+
+                <div class="showcase-point">
+
+                    <span class="point-icon">01</span>
+
+                    <div>
+                        <strong>Manage student information</strong>
+                        <small>Profiles and academic activity</small>
+                    </div>
+
+                </div>
+
+
+                <div class="showcase-point">
+
+                    <span class="point-icon">02</span>
+
+                    <div>
+                        <strong>Manage academic resources</strong>
+                        <small>PYQs, quizzes, FAQs and documents</small>
+                    </div>
+
+                </div>
+
+
+                <div class="showcase-point">
+
+                    <span class="point-icon">03</span>
+
+                    <div>
+                        <strong>Publish important information</strong>
+                        <small>Notices and academic updates</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="showcase-footer">
+
+            <span>Authorized Staff Portal</span>
+
+            <span>•</span>
+
+            <span>InfoGain Administration</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT -->
+
+    <section class="auth-panel">
+
+        <div class="auth-card admin-card">
+
+            <div class="mobile-logo-wrap">
+
+                <a href="/" class="auth-brand dark-brand">
+
+                    <svg class="brand-logo" viewBox="0 0 52 44">
+
+                        <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.3"
+                              stroke-linejoin="round"/>
+
+                        <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.3"
+                              stroke-linejoin="round"/>
+
+                        <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+
+                    </svg>
+
+                    <span>InfoGain</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="auth-heading">
+
+                <div class="section-tag">
+                    AUTHORIZED ACCESS
+                </div>
+
+                <h2>
+                    Admin / Staff Login
+                </h2>
+
+                <p>
+                    Sign in to manage academic information and monitor the portal.
+                </p>
+
+            </div>
+
+
+            <form id="adminLoginForm" class="auth-form">
+
+                <div class="field-group">
+
+                    <label for="adminIdentifier">
+                        Staff ID / Official Email
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">ID</span>
+
+                        <input
+                                id="adminIdentifier"
+                                type="text"
+                                placeholder="Enter staff ID or email"
+                                autocomplete="username"
+                                required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="field-group">
+
+                    <div class="field-label-row">
+
+                        <label for="adminPassword">
+                            Password
+                        </label>
+
+                        <a href="#" id="adminForgotPassword">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">••</span>
+
+                        <input
+                                id="adminPassword"
+                                type="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                        >
+
+                        <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleAdminPassword">
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="auth-submit admin-submit">
+
+                    <span>Open Admin Portal</span>
+
+                    <span class="submit-arrow">→</span>
+
+                </button>
+
+
+                <div id="adminLoginMessage" class="form-message"></div>
+
+            </form>
+
+
+            <div class="admin-access-note">
+
+                <span class="note-icon">!</span>
+
+                <div>
+
+                    <strong>Staff access only</strong>
+
+                    <p>
+                        This portal is intended for authorized college administrators
+                        and staff members.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="auth-bottom-links">
+
+                <a href="/">
+                    ← Back to InfoGain home
+                </a>
+
+                <a href="/login">
+                    Student login
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="security-note">
+
+            <span class="security-icon">✓</span>
+
+            Administration actions will be secured by backend authentication later.
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script
+        th:src="@{/js/auth.js}"
+        src="/js/auth.js">
+</script>
+
+</body>
+</html>

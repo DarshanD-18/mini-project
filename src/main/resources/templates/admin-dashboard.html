@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | InfoGain</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/admin-dashboard.css}"
+          href="/css/admin-dashboard.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <a href="/" class="admin-brand">
+
+            <svg class="admin-logo" viewBox="0 0 52 44">
+
+                <path d="M5 9.5C12.7 6.2 19.8 7.2 26 12v25c-6.2-4.8-13.3-5.8-21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"/>
+
+                <path d="M47 9.5C39.3 6.2 32.2 7.2 26 12v25c6.2-4.8 13.3-5.8 21-2.5V9.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"/>
+
+                <circle cx="26" cy="8" r="4.2" fill="#d28a2c"/>
+
+            </svg>
+
+            <span>InfoGain</span>
+
+        </a>
+
+
+        <div class="admin-space-label">
+            ADMINISTRATION
+        </div>
+
+
+        <nav class="admin-nav">
+
+            <a href="#overview" class="admin-link active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#students" class="admin-link">
+                <span>◎</span>
+                Students
+            </a>
+
+            <a href="#subjects" class="admin-link">
+                <span>▦</span>
+                Subjects
+            </a>
+
+            <a href="#pyqs" class="admin-link">
+                <span>◫</span>
+                PYQs
+            </a>
+
+            <a href="#quizzes" class="admin-link">
+                <span>✓</span>
+                Quizzes
+            </a>
+
+            <a href="#faqs" class="admin-link">
+                <span>?</span>
+                FAQs
+            </a>
+
+            <a href="#documents" class="admin-link">
+                <span>□</span>
+                Documents
+            </a>
+
+            <a href="#notices" class="admin-link">
+                <span>!</span>
+                Notices
+            </a>
+
+            <a href="#analytics" class="admin-link">
+                <span>↗</span>
+                Analytics
+            </a>
+
+        </nav>
+
+
+        <div class="admin-side-bottom">
+
+            <a href="/" class="admin-home-link">
+                ← InfoGain Home
+            </a>
+
+            <button id="adminLogout">
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+        <header class="admin-topbar">
+
+            <button class="admin-menu" id="adminMenu">
+                ☰
+            </button>
+
+            <div>
+
+                <span class="admin-kicker">
+                    COLLEGE ADMINISTRATION
+                </span>
+
+                <h1>
+                    InfoGain Control Centre
+                </h1>
+
+            </div>
+
+
+            <div class="admin-top-actions">
+
+                <button class="admin-notification">
+                    ♢
+                    <span></span>
+                </button>
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="admin-content">
+
+
+            <!-- OVERVIEW -->
+
+            <section id="overview" class="admin-section">
+
+                <div class="admin-welcome">
+
+                    <div>
+
+                        <span class="panel-label">
+                            PORTAL OVERVIEW
+                        </span>
+
+                        <h2>
+                            Keep InfoGain useful and up to date.
+                        </h2>
+
+                        <p>
+                            Manage academic resources, monitor student activity,
+                            publish notices and track unanswered questions.
+                        </p>
+
+                    </div>
+
+                    <div class="overview-date">
+                        <strong>2026–27</strong>
+                        <span>Academic Year</span>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-stat-grid">
+
+                    <article class="admin-stat-card">
+
+                        <span class="admin-stat-label">
+                            REGISTERED STUDENTS
+                        </span>
+
+                        <strong>
+                            1,248
+                        </strong>
+
+                        <small class="positive">
+                            ↑ 6.4% this month
+                        </small>
+
+                    </article>
+
+
+                    <article class="admin-stat-card">
+
+                        <span class="admin-stat-label">
+                            ACTIVE STUDENTS
+                        </span>
+
+                        <strong>
+                            986
+                        </strong>
+
+                        <small>
+                            Last 30 days
+                        </small>
+
+                    </article>
+
+
+                    <article class="admin-stat-card alert-stat">
+
+                        <span class="admin-stat-label">
+                            UNANSWERED QUESTIONS
+                        </span>
+
+                        <strong>
+                            37
+                        </strong>
+
+                        <small class="alert-text">
+                            Needs review
+                        </small>
+
+                    </article>
+
+
+                    <article class="admin-stat-card">
+
+                        <span class="admin-stat-label">
+                            KNOWLEDGE RESOURCES
+                        </span>
+
+                        <strong>
+                            182
+                        </strong>
+
+                        <small>
+                            FAQs, PYQs & documents
+                        </small>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK MANAGEMENT -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Quick actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="management-grid">
+
+                    <article class="management-card">
+
+                        <div class="management-icon navy">
+                            ?
+                        </div>
+
+                        <div>
+                            <h3>Manage FAQs</h3>
+                            <p>Update common questions and answers.</p>
+                        </div>
+
+                        <button>
+                            Open
+                        </button>
+
+                    </article>
+
+
+                    <article class="management-card">
+
+                        <div class="management-icon green">
+                            □
+                        </div>
+
+                        <div>
+                            <h3>Manage Documents</h3>
+                            <p>Upload academic documents and resources.</p>
+                        </div>
+
+                        <button>
+                            Open
+                        </button>
+
+                    </article>
+
+
+                    <article class="management-card">
+
+                        <div class="management-icon gold">
+                            !
+                        </div>
+
+                        <div>
+                            <h3>Publish Notices</h3>
+                            <p>Share announcements with students.</p>
+                        </div>
+
+                        <button>
+                            Open
+                        </button>
+
+                    </article>
+
+
+                    <article class="management-card">
+
+                        <div class="management-icon terracotta">
+                            ↗
+                        </div>
+
+                        <div>
+                            <h3>Track & Analyze</h3>
+                            <p>Review usage and academic activity.</p>
+                        </div>
+
+                        <button>
+                            Open
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- STUDENTS -->
+
+            <section id="students" class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            STUDENTS
+                        </span>
+
+                        <h2>
+                            Recent student activity
+                        </h2>
+
+                    </div>
+
+                    <button class="admin-action-button">
+                        View all students
+                    </button>
+
+                </div>
+
+
+                <div class="admin-card">
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                            <tr>
+                                <th>Student</th>
+                                <th>USN</th>
+                                <th>Branch</th>
+                                <th>Progress</th>
+                                <th>Last Active</th>
+                                <th>Status</th>
+                            </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                            <tr>
+
+                                <td class="student-cell">
+
+                                    <div class="mini-avatar">
+                                        D
+                                    </div>
+
+                                    <div>
+                                        <strong>Darshan</strong>
+                                        <span>student@college.edu</span>
+                                    </div>
+
+                                </td>
+
+                                <td>1SI24CS001</td>
+
+                                <td>CSE</td>
+
+                                <td>68%</td>
+
+                                <td>Today</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td class="student-cell">
+
+                                    <div class="mini-avatar green-avatar">
+                                        A
+                                    </div>
+
+                                    <div>
+                                        <strong>Ananya Rao</strong>
+                                        <span>ananya@college.edu</span>
+                                    </div>
+
+                                </td>
+
+                                <td>1SI24CS014</td>
+
+                                <td>CSE</td>
+
+                                <td>82%</td>
+
+                                <td>Today</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td class="student-cell">
+
+                                    <div class="mini-avatar gold-avatar">
+                                        R
+                                    </div>
+
+                                    <div>
+                                        <strong>Rahul M</strong>
+                                        <span>rahul@college.edu</span>
+                                    </div>
+
+                                </td>
+
+                                <td>1SI24CS027</td>
+
+                                <td>CSE</td>
+
+                                <td>51%</td>
+
+                                <td>Yesterday</td>
+
+                                <td>
+                                    <span class="status idle">Needs attention</span>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTIONS -->
+
+            <section class="admin-split">
+
+                <article id="faqs" class="admin-card">
+
+                    <div class="admin-card-heading">
+
+                        <div>
+
+                            <span class="panel-label">
+                                QUESTIONS
+                            </span>
+
+                            <h2>
+                                Unanswered queries
+                            </h2>
+
+                        </div>
+
+                        <span class="count-badge">
+                            37
+                        </span>
+
+                    </div>
+
+
+                    <div class="query-item">
+
+                        <div class="query-priority"></div>
+
+                        <div>
+                            <strong>How is CIE calculated?</strong>
+                            <span>Asked 15 minutes ago • 12 views</span>
+                        </div>
+
+                        <button>Review</button>
+
+                    </div>
+
+
+                    <div class="query-item">
+
+                        <div class="query-priority"></div>
+
+                        <div>
+                            <strong>Where can I download the bonafide form?</strong>
+                            <span>Asked 42 minutes ago • 8 views</span>
+                        </div>
+
+                        <button>Review</button>
+
+                    </div>
+
+
+                    <div class="query-item">
+
+                        <div class="query-priority"></div>
+
+                        <div>
+                            <strong>When is the next internal assessment?</strong>
+                            <span>Asked 1 hour ago • 23 views</span>
+                        </div>
+
+                        <button>Review</button>
+
+                    </div>
+
+                </article>
+
+
+                <article id="notices" class="admin-card">
+
+                    <div class="admin-card-heading">
+
+                        <div>
+
+                            <span class="panel-label">
+                                NOTICES
+                            </span>
+
+                            <h2>
+                                Publish update
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="noticeForm" class="notice-form">
+
+                        <input
+                                type="text"
+                                id="noticeTitle"
+                                placeholder="Notice title"
+                                required
+                        >
+
+                        <textarea
+                                id="noticeText"
+                                rows="4"
+                                placeholder="Write your notice..."
+                                required
+                        ></textarea>
+
+                        <button type="submit">
+                            Publish Notice
+                        </button>
+
+                    </form>
+
+
+                    <div id="noticeMessage" class="notice-message"></div>
+
+                </article>
+
+            </section>
+
+
+            <!-- RESOURCES -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            RESOURCES
+                        </span>
+
+                        <h2>
+                            Academic content summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resource-grid">
+
+                    <article id="subjects" class="resource-card">
+
+                        <div class="resource-icon navy">
+                            ▦
+                        </div>
+
+                        <strong>Subjects</strong>
+
+                        <span>
+                            8 active subjects
+                        </span>
+
+                    </article>
+
+
+                    <article id="pyqs" class="resource-card">
+
+                        <div class="resource-icon green">
+                            ◫
+                        </div>
+
+                        <strong>PYQs</strong>
+
+                        <span>
+                            624 questions
+                        </span>
+
+                    </article>
+
+
+                    <article id="quizzes" class="resource-card">
+
+                        <div class="resource-icon gold">
+                            ✓
+                        </div>
+
+                        <strong>Quizzes</strong>
+
+                        <span>
+                            96 quiz sets
+                        </span>
+
+                    </article>
+
+
+                    <article id="documents" class="resource-card">
+
+                        <div class="resource-icon terracotta">
+                            □
+                        </div>
+
+                        <strong>Documents</strong>
+
+                        <span>
+                            68 resources
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS -->
+
+            <section id="analytics" class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <span class="panel-label">
+                            ANALYTICS
+                        </span>
+
+                        <h2>
+                            Student activity overview
+                        </h2>
+
+                    </div>
+
+                    <select class="period-select">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>This semester</option>
+                    </select>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <div class="chart-area">
+
+                        <div class="chart-bar" style="height:55%">
+                            <span>Mon</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:70%">
+                            <span>Tue</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:48%">
+                            <span>Wed</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:82%">
+                            <span>Thu</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:65%">
+                            <span>Fri</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:92%">
+                            <span>Sat</span>
+                        </div>
+
+                        <div class="chart-bar" style="height:58%">
+                            <span>Sun</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="analytics-summary">
+
+                        <div>
+                            <span>Questions Asked</span>
+                            <strong>1,482</strong>
+                        </div>
+
+                        <div>
+                            <span>PYQs Viewed</span>
+                            <strong>934</strong>
+                        </div>
+
+                        <div>
+                            <span>Quiz Attempts</span>
+                            <strong>617</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script
+        th:src="@{/js/admin-dashboard.js}"
+        src="/js/admin-dashboard.js">
+</script>
+
+</body>
+</html>

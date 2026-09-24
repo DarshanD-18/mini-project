@@ -1,15 +1,2221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College AI Assistant</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        InfoGain | Student Information Portal
+    </title>
+
+    <meta
+        name="description"
+        content="InfoGain is a smart college information, student support and administration portal."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        th:href="@{/css/style.css}"
+        href="/css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <h1>College AI Assistant</h1>
-    <p>Welcome to your College FAQ Chatbot.</p>
+
+<!-- =========================================================
+     TOP INFORMATION BAR
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <div class="top-message">
+
+            <span class="top-dot"></span>
+
+            <span>
+                Official College Information Portal
+            </span>
+
+        </div>
+
+
+        <div class="top-links">
+
+            <a href="#help">
+                Help Centre
+            </a>
+
+            <span class="top-divider"></span>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN HEADER
+========================================================= -->
+
+<header class="main-header">
+
+    <div class="container nav-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="#home"
+            class="brand"
+            aria-label="InfoGain Home"
+        >
+
+            <div class="brand-logo">
+
+                <svg
+                    viewBox="0 0 52 52"
+                    width="40"
+                    height="40"
+                    fill="none"
+                    aria-hidden="true"
+                >
+
+                    <rect
+                        x="2"
+                        y="2"
+                        width="48"
+                        height="48"
+                        rx="11"
+                        fill="currentColor"
+                    />
+
+                    <path
+                        d="M13 17.5C13 16.67 13.67 16 14.5 16H23.5C26.26 16 28.5 18.24 28.5 21V36C27.08 34.65 25.19 34 23.25 34H14.5C13.67 34 13 33.33 13 32.5V17.5Z"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M39 17.5C39 16.67 38.33 16 37.5 16H32.5C29.74 16 27.5 18.24 27.5 21V36C28.92 34.65 30.81 34 32.75 34H37.5C38.33 34 39 33.33 39 32.5V17.5Z"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                    />
+
+                    <circle
+                        cx="39"
+                        cy="12"
+                        r="3"
+                        fill="#D28A2C"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="brand-copy">
+
+                <span class="brand-name">
+                    InfoGain
+                </span>
+
+                <span class="brand-subtitle">
+                    Student Information Portal
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a
+                class="nav-link active"
+                href="#home"
+            >
+                Home
+            </a>
+
+            <a
+                class="nav-link"
+                href="#services"
+            >
+                Services
+            </a>
+
+            <a
+                class="nav-link"
+                href="#topics"
+            >
+                Information
+            </a>
+
+            <a
+                class="nav-link"
+                href="#how-it-works"
+            >
+                How It Works
+            </a>
+
+        </nav>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="nav-actions">
+
+            <a
+                href="/admin/login"
+                class="admin-nav-link"
+            >
+                Admin / Staff
+            </a>
+
+            <a
+                href="/login"
+                class="student-login-button"
+            >
+                Student Login
+            </a>
+
+
+            <button
+                type="button"
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                aria-label="Open menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    id="home"
+    class="hero-section page-section"
+>
+
+    <div class="hero-decor hero-decor-one"></div>
+
+    <div class="hero-decor hero-decor-two"></div>
+
+
+    <div class="container hero-layout">
+
+
+        <!-- HERO LEFT -->
+
+        <div class="hero-copy">
+
+
+            <div class="hero-label">
+
+                <span></span>
+
+                SMART COLLEGE INFORMATION
+
+            </div>
+
+
+            <h1>
+
+                Find the right college
+                information,
+
+                <strong>
+                    without the search.
+                </strong>
+
+            </h1>
+
+
+            <p class="hero-text">
+
+                InfoGain brings academic information, student
+                services, notices, procedures and frequently
+                asked questions into one easy-to-use portal.
+
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-section">
+
+                <form
+                    id="questionForm"
+                    class="main-search"
+                >
+
+                    <div class="search-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="21"
+                            height="21"
+                            fill="none"
+                        >
+
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            ></circle>
+
+                            <path
+                                d="M20 20L16.5 16.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            ></path>
+
+                        </svg>
+
+                    </div>
+
+
+                    <input
+                        id="questionInput"
+                        type="text"
+                        placeholder="Ask about exams, fees, attendance, scholarships..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="ask-button"
+                    >
+
+                        Ask InfoGain
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <div class="popular-searches">
+
+                    <span class="popular-title">
+                        Popular:
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="popular-link"
+                        data-question="What is the minimum attendance requirement?"
+                    >
+                        Attendance
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="popular-link"
+                        data-question="How can I apply for a scholarship?"
+                    >
+                        Scholarships
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="popular-link"
+                        data-question="How can I register for university examinations?"
+                    >
+                        Examinations
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-assurance">
+
+                <span class="assurance-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Student focused • Simple to use • Ready for college data
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO RIGHT -->
+
+        <div class="hero-preview">
+
+
+            <div class="assistant-window">
+
+
+                <!-- ASSISTANT HEADER -->
+
+                <div class="assistant-header">
+
+                    <div class="assistant-identity">
+
+                        <div class="assistant-icon">
+
+                            <svg
+                                viewBox="0 0 52 52"
+                                width="30"
+                                height="30"
+                                fill="none"
+                            >
+
+                                <path
+                                    d="M8 17C8 15.34 9.34 14 11 14H21C26.52 14 31 18.48 31 24V40C28.57 37.95 25.55 37 22.45 37H11C9.34 37 8 35.66 8 34V17Z"
+                                    stroke="currentColor"
+                                    stroke-width="2.3"
+                                    stroke-linejoin="round"
+                                />
+
+                                <path
+                                    d="M44 17C44 15.34 42.66 14 41 14H34C28.48 14 24 18.48 24 24V40C26.43 37.95 29.45 37 32.55 37H41C42.66 37 44 35.66 44 34V17Z"
+                                    stroke="currentColor"
+                                    stroke-width="2.3"
+                                    stroke-linejoin="round"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                InfoGain Assistant
+                            </strong>
+
+                            <span class="assistant-status">
+
+                                <i></i>
+
+                                Ready to help
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="assistant-more">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <!-- CHAT BODY -->
+
+                <div class="assistant-body">
+
+
+                    <div class="message-row bot">
+
+                        <div class="message-avatar">
+                            I
+                        </div>
+
+                        <div class="message-bubble">
+
+                            Hello! What would you like
+                            to know about your college?
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="message-row user">
+
+                        <div class="message-bubble user-message">
+
+                            How can I check my attendance?
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="message-row bot">
+
+                        <div class="message-avatar">
+                            I
+                        </div>
+
+                        <div class="message-group">
+
+                            <div class="message-bubble">
+
+                                You can check your attendance
+                                through the student portal under
+                                <strong>Academic Records</strong>.
+
+                            </div>
+
+
+                            <div class="source-reference">
+
+                                <span>
+                                    i
+                                </span>
+
+                                College Student Portal
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="assistant-info-card">
+
+                        <span>
+                            INFOGAIN
+                        </span>
+
+                        <strong>
+                            One place for everyday college questions
+                        </strong>
+
+                        <small>
+                            Search, understand and track information
+                            through a single portal.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ASSISTANT INPUT -->
+
+                <div class="assistant-footer">
+
+                    <span>
+                        Ask a question to get started
+                    </span>
+
+
+                    <div class="assistant-fake-input">
+
+                        <span>
+                            Type your question...
+                        </span>
+
+                        <b>
+                            ↑
+                        </b>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING CARD 1 -->
+
+            <div class="floating-card floating-card-one">
+
+                <div class="floating-icon saffron">
+                    Q
+                </div>
+
+                <div>
+
+                    <strong>
+                        Quick Answers
+                    </strong>
+
+                    <small>
+                        Find common information faster
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING CARD 2 -->
+
+            <div class="floating-card floating-card-two">
+
+                <div class="floating-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Organized Information
+                    </strong>
+
+                    <small>
+                        Built for students and colleges
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     POPULAR QUESTIONS
+========================================================= -->
+
+<section
+    id="quick-access"
+    class="questions-section page-section"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-kicker">
+                    QUICK ACCESS
+                </span>
+
+                <h2>
+                    Questions students ask most
+                </h2>
+
+            </div>
+
+
+            <p>
+                Select any question to use it as a starting point
+                for the InfoGain assistant.
+            </p>
+
+        </div>
+
+
+        <div class="question-grid">
+
+
+            <button
+                type="button"
+                class="question-card"
+                data-question="What is the minimum attendance requirement?"
+            >
+
+                <span class="question-index">
+                    01
+                </span>
+
+                <span class="question-content">
+
+                    <strong>
+                        Attendance requirements
+                    </strong>
+
+                    <small>
+                        Rules, eligibility and academic attendance
+                        information.
+                    </small>
+
+                </span>
+
+                <span class="question-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="question-card"
+                data-question="How can I register for university examinations?"
+            >
+
+                <span class="question-index">
+                    02
+                </span>
+
+                <span class="question-content">
+
+                    <strong>
+                        Examination registration
+                    </strong>
+
+                    <small>
+                        Registration, timetable, fees and examination
+                        procedures.
+                    </small>
+
+                </span>
+
+                <span class="question-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="question-card"
+                data-question="How can I apply for a scholarship?"
+            >
+
+                <span class="question-index">
+                    03
+                </span>
+
+                <span class="question-content">
+
+                    <strong>
+                        Scholarships
+                    </strong>
+
+                    <small>
+                        Eligibility, applications and student
+                        financial assistance information.
+                    </small>
+
+                </span>
+
+                <span class="question-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="question-card"
+                data-question="Where can I find important college notices and documents?"
+            >
+
+                <span class="question-index">
+                    04
+                </span>
+
+                <span class="question-content">
+
+                    <strong>
+                        Notices & documents
+                    </strong>
+
+                    <small>
+                        Forms, circulars, announcements and
+                        academic documents.
+                    </small>
+
+                </span>
+
+                <span class="question-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STUDENT SERVICES
+========================================================= -->
+
+<section
+    id="services"
+    class="services-section page-section"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-kicker">
+                    STUDENT SERVICES
+                </span>
+
+                <h2>
+                    College information, organized simply.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Explore the areas students use most without
+                navigating through multiple pages.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 1 -->
+
+            <button
+                type="button"
+                class="service-card"
+                data-question="Tell me about academic information, subjects, curriculum, examinations, attendance and academic procedures."
+            >
+
+                <div class="service-icon navy-service">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                    >
+
+                        <rect
+                            x="5"
+                            y="3.5"
+                            width="14"
+                            height="17"
+                            rx="2"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        ></rect>
+
+                        <path
+                            d="M9 8H15"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M9 12H15"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M9 16H13"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="service-meta">
+
+                    <span>
+                        01
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </div>
+
+
+                <strong>
+                    Academic Information
+                </strong>
+
+                <p>
+                    Subjects, curriculum, examinations, attendance
+                    and academic procedures.
+                </p>
+
+
+                <span class="service-link">
+                    Explore information
+                </span>
+
+            </button>
+
+
+            <!-- SERVICE 2 -->
+
+            <button
+                type="button"
+                class="service-card"
+                data-question="Tell me about student support, scholarships, certificates and applications."
+            >
+
+                <div class="service-icon saffron-service">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                    >
+
+                        <path
+                            d="M3.5 8L12 3.5L20.5 8L12 12.5L3.5 8Z"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linejoin="round"
+                        ></path>
+
+                        <path
+                            d="M6 9.5V14"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M6 14C7.5 16 9.5 17 12 17C14.5 17 16.5 16 18 14V9.5"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="service-meta">
+
+                    <span>
+                        02
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </div>
+
+
+                <strong>
+                    Student Support
+                </strong>
+
+                <p>
+                    Scholarships, certificates, applications and
+                    student service guidance.
+                </p>
+
+
+                <span class="service-link">
+                    View support topics
+                </span>
+
+            </button>
+
+
+            <!-- SERVICE 3 -->
+
+            <button
+                type="button"
+                class="service-card"
+                data-question="Tell me about notices, circulars, forms and important college documents."
+            >
+
+                <div class="service-icon green-service">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                    >
+
+                        <rect
+                            x="5"
+                            y="3.5"
+                            width="14"
+                            height="17"
+                            rx="2"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        ></rect>
+
+                        <path
+                            d="M9 8H15"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M9 12H15"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M9 16H12"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="service-meta">
+
+                    <span>
+                        03
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </div>
+
+
+                <strong>
+                    Forms & Documents
+                </strong>
+
+                <p>
+                    Notices, circulars, forms and commonly requested
+                    college documents.
+                </p>
+
+
+                <span class="service-link">
+                    Browse documents
+                </span>
+
+            </button>
+
+
+            <!-- SERVICE 4 -->
+
+            <button
+                type="button"
+                class="service-card"
+                data-question="Tell me about departments, campus facilities and important college contacts."
+            >
+
+                <div class="service-icon terracotta-service">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                    >
+
+                        <path
+                            d="M5 20V5"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M5 7C8 5.5 10 5.5 13 7C15.5 8.2 17 8.2 19 7"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M8 12H15"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                        <path
+                            d="M8 16H13"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="service-meta">
+
+                    <span>
+                        04
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </div>
+
+
+                <strong>
+                    Campus Information
+                </strong>
+
+                <p>
+                    Departments, facilities, important contacts
+                    and campus information.
+                </p>
+
+
+                <span class="service-link">
+                    Explore campus
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INFORMATION TOPICS
+========================================================= -->
+
+<section
+    id="topics"
+    class="topics-section page-section"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-kicker">
+                    INFORMATION CENTRE
+                </span>
+
+                <h2>
+                    Find information by topic.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Select a topic to prepare a question for the
+                InfoGain assistant.
+            </p>
+
+        </div>
+
+
+        <div class="topic-grid">
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about examination rules and timetables."
+            >
+
+                <span class="topic-number">
+                    01
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Examinations
+                    </strong>
+
+                    <small>
+                        Timetables, registration and rules
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about attendance requirements."
+            >
+
+                <span class="topic-number">
+                    02
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Attendance
+                    </strong>
+
+                    <small>
+                        Requirements and academic eligibility
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about scholarships and financial assistance."
+            >
+
+                <span class="topic-number">
+                    03
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Scholarships
+                    </strong>
+
+                    <small>
+                        Eligibility and application information
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about college fees and payment procedures."
+            >
+
+                <span class="topic-number">
+                    04
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Fees & Payments
+                    </strong>
+
+                    <small>
+                        Fees, payments and procedures
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about hostel facilities and rules."
+            >
+
+                <span class="topic-number">
+                    05
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Hostel
+                    </strong>
+
+                    <small>
+                        Facilities, applications and rules
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about certificates and document requests."
+            >
+
+                <span class="topic-number">
+                    06
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Certificates
+                    </strong>
+
+                    <small>
+                        Applications and document requests
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about departments and faculty."
+            >
+
+                <span class="topic-number">
+                    07
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Departments
+                    </strong>
+
+                    <small>
+                        Departments, faculty and contacts
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="topic-item"
+                data-question="Tell me about important college notices."
+            >
+
+                <span class="topic-number">
+                    08
+                </span>
+
+                <span class="topic-copy">
+
+                    <strong>
+                        Notices
+                    </strong>
+
+                    <small>
+                        Announcements and important updates
+                    </small>
+
+                </span>
+
+                <span class="topic-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section
+    id="how-it-works"
+    class="process-section page-section"
+>
+
+    <div class="container">
+
+
+        <div class="process-heading">
+
+            <span class="section-kicker">
+                HOW INFOGAIN WORKS
+            </span>
+
+            <h2>
+                Ask. Find. Understand.
+            </h2>
+
+            <p>
+                A simple interface today, with room to connect
+                your college database and AI knowledge system later.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Ask
+                </h3>
+
+                <p>
+                    Enter your question using normal language.
+                </p>
+
+            </div>
+
+
+            <div class="process-line"></div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Find
+                </h3>
+
+                <p>
+                    The system searches the available college
+                    information and resources.
+                </p>
+
+            </div>
+
+
+            <div class="process-line"></div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    Receive a clear answer supported by useful
+                    information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ADMIN / STAFF SECTION
+========================================================= -->
+
+<section
+    class="admin-section page-section"
+    id="admin-portal"
+>
+
+    <div class="container">
+
+        <div class="admin-panel">
+
+
+            <div class="admin-copy">
+
+                <span class="section-kicker admin-kicker">
+                    FOR COLLEGE ADMINISTRATORS
+                </span>
+
+                <h2>
+                    Keep InfoGain useful and up to date.
+                </h2>
+
+                <p>
+                    Admin and authorized staff can manage college
+                    information, maintain FAQs and documents,
+                    publish notices, and monitor how students use
+                    the platform.
+                </p>
+
+
+                <a
+                    href="/admin/login"
+                    class="admin-button"
+                >
+
+                    Open Admin Portal
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="admin-features">
+
+
+                <div class="admin-feature">
+
+                    <div class="admin-feature-icon">
+                        FAQ
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Manage FAQs
+                        </strong>
+
+                        <small>
+                            Add, edit and organize answers
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-feature">
+
+                    <div class="admin-feature-icon">
+                        DOC
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Manage Documents
+                        </strong>
+
+                        <small>
+                            Upload and maintain college resources
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-feature">
+
+                    <div class="admin-feature-icon">
+                        N
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Publish Notices
+                        </strong>
+
+                        <small>
+                            Keep students informed
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-feature">
+
+                    <div class="admin-feature-icon">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Track & Analyze
+                        </strong>
+
+                        <small>
+                            Monitor questions and usage trends
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STUDENT PORTAL CTA
+========================================================= -->
+
+<section class="student-portal-section">
+
+    <div class="container">
+
+        <div class="student-portal-card">
+
+
+            <div>
+
+                <span class="section-kicker light-kicker">
+                    STUDENT PORTAL
+                </span>
+
+                <h2>
+                    A personal space for every student.
+                </h2>
+
+                <p>
+                    Sign in to access your conversations, question
+                    history and student-specific services.
+                </p>
+
+
+                <a
+                    href="/login"
+                    class="student-portal-button"
+                >
+
+                    Student Login
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="student-portal-stats">
+
+
+                <div>
+
+                    <strong>
+                        Chat
+                    </strong>
+
+                    <span>
+                        Ask InfoGain
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        History
+                    </strong>
+
+                    <span>
+                        Previous questions
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <span>
+                        Personalized access
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HELP / FAQ
+========================================================= -->
+
+<section
+    id="help"
+    class="help-section page-section"
+>
+
+    <div class="container help-grid">
+
+
+        <div class="help-copy">
+
+            <span class="section-kicker">
+                HELP CENTRE
+            </span>
+
+            <h2>
+                Frequently asked questions
+            </h2>
+
+            <p>
+                Understand how the InfoGain portal is intended
+                to work for students and administrators.
+            </p>
+
+
+            <a
+                href="#home"
+                class="help-link"
+            >
+                Ask a question
+                →
+            </a>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+            <div class="faq-item">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
+
+                    <span>
+                        What can students ask InfoGain?
+                    </span>
+
+                    <span class="faq-symbol">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        Students can ask about academic information,
+                        examinations, attendance, scholarships,
+                        documents, notices, college procedures and
+                        other information available in the system.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
+
+                    <span>
+                        What can an admin manage?
+                    </span>
+
+                    <span class="faq-symbol">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        The admin side is designed to manage FAQs,
+                        documents, notices, student-related information,
+                        questions and analytics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
+
+                    <span>
+                        Can students see their previous questions?
+                    </span>
+
+                    <span class="faq-symbol">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        Authenticated students will be able to review
+                        their previous questions and conversations through
+                        the student dashboard.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
+
+                    <span>
+                        Where will InfoGain get its information?
+                    </span>
+
+                    <span class="faq-symbol">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        The completed system can connect InfoGain to
+                        structured college data and approved college
+                        documents so the information can be maintained
+                        centrally.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    id="contact"
+    class="footer"
+>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- FOOTER BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="#home"
+                    class="brand footer-brand-link"
+                >
+
+                    <div class="brand-logo">
+
+                        <svg
+                            viewBox="0 0 52 52"
+                            width="40"
+                            height="40"
+                            fill="none"
+                        >
+
+                            <rect
+                                x="2"
+                                y="2"
+                                width="48"
+                                height="48"
+                                rx="11"
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="M13 17.5C13 16.67 13.67 16 14.5 16H23.5C26.26 16 28.5 18.24 28.5 21V36C27.08 34.65 25.19 34 23.25 34H14.5C13.67 34 13 33.33 13 32.5V17.5Z"
+                                stroke="white"
+                                stroke-width="2"
+                            />
+
+                            <path
+                                d="M39 17.5C39 16.67 38.33 16 37.5 16H32.5C29.74 16 27.5 18.24 27.5 21V36C28.92 34.65 30.81 34 32.75 34H37.5C38.33 34 39 33.33 39 32.5V17.5Z"
+                                stroke="white"
+                                stroke-width="2"
+                            />
+
+                            <circle
+                                cx="39"
+                                cy="12"
+                                r="3"
+                                fill="#D28A2C"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="brand-copy">
+
+                        <span class="brand-name">
+                            InfoGain
+                        </span>
+
+                        <span class="brand-subtitle">
+                            Student Information Portal
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <p>
+                    A centralized platform for college information,
+                    student support and administrative management.
+                </p>
+
+            </div>
+
+
+            <!-- FOOTER PORTAL -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Portal
+                </h4>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#topics">
+                    Information
+                </a>
+
+                <a href="/login">
+                    Student Login
+                </a>
+
+            </div>
+
+
+            <!-- FOOTER ADMIN -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Administration
+                </h4>
+
+                <a href="#admin-portal">
+                    Admin Portal
+                </a>
+
+                <a href="/admin/login">
+                    Admin Login
+                </a>
+
+                <a href="#admin-portal">
+                    FAQ Management
+                </a>
+
+                <a href="#admin-portal">
+                    Analytics
+                </a>
+
+            </div>
+
+
+            <!-- FOOTER SUPPORT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+                <a href="#help">
+                    Help Centre
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a href="#home">
+                    Ask InfoGain
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="currentYear"></span> InfoGain
+            </span>
+
+            <span>
+                Student Information Portal
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     QUESTION MODAL
+========================================================= -->
+
+<div
+    id="questionModal"
+    class="modal-overlay"
+>
+
+    <div class="question-modal">
+
+
+        <button
+            id="modalClose"
+            type="button"
+            class="modal-close"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-brand">
+            I
+        </div>
+
+
+        <span class="section-kicker">
+            INFOGAIN ASSISTANT
+        </span>
+
+
+        <h2>
+            Continue with your question
+        </h2>
+
+
+        <p id="modalQuestionText">
+            Your question is ready.
+        </p>
+
+
+        <div class="modal-actions">
+
+            <a
+                href="/login"
+                class="modal-primary"
+            >
+
+                Continue to Student Login
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <button
+                id="modalCancel"
+                type="button"
+                class="modal-secondary"
+            >
+                Go Back
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script
+    th:src="@{/js/app.js}"
+    src="/js/app.js"
+></script>
+
 
 </body>
+
 </html>

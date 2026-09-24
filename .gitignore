@@ -1,0 +1,9 @@
+backend/.env
+backend/venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.py[cod]
+mongodb-data-*/
+mongod.log
+mongod.lock

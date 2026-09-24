@@ -1,0 +1,1 @@
+"""Course tracking module."""
